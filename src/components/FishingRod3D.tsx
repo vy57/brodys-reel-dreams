@@ -256,7 +256,7 @@ function Guide({
   );
 }
 
-export function FishingRod3D({ accent }: { accent?: string }) {
+export function FishingRod3D({ accent, interactive = false }: { accent?: string; interactive?: boolean }) {
   return (
     <Canvas
       shadows
@@ -270,7 +270,7 @@ export function FishingRod3D({ accent }: { accent?: string }) {
         <directionalLight position={[-4, 2, -3]} intensity={0.5} color="#7fa66b" />
         <spotLight position={[0, 6, 4]} angle={0.5} penumbra={0.8} intensity={0.6} color="#c97f3d" />
         <Float speed={1.2} rotationIntensity={0.25} floatIntensity={0.4}>
-          <Rod accent={accent} />
+          <Rod accent={accent} interactive={interactive} />
         </Float>
         <ContactShadows position={[0, -3.6, 0]} opacity={0.4} scale={8} blur={2.5} far={4} />
         <Environment preset="warehouse" />
@@ -278,3 +278,4 @@ export function FishingRod3D({ accent }: { accent?: string }) {
     </Canvas>
   );
 }
+
