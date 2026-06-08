@@ -160,7 +160,7 @@ function Index() {
             >
               <div>
                 <div className="text-bone font-serif text-2xl normal-case tracking-normal">
-                  <CountUp to={175} prefix="$" suffix="+" />
+                  <CountUp to={230} prefix="$" suffix="+" />
                 </div>
                 <div className="mt-1">Starting price</div>
               </div>
