@@ -28,7 +28,7 @@ const RODS = [
     index: "01",
     name: "The River Forge",
     spec: "Inshore / 7'0\" Medium-Fast",
-    price: "$175",
+    price: "$230",
     accent: "#c97f3d",
     notes: [
       "Hand-wrapped copper trim with epoxy finish",
