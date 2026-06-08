@@ -294,6 +294,111 @@ function Index() {
         </div>
       </section>
 
+      {/* REPAIR */}
+      <section id="repair" className="relative py-28 md:py-36 border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <div className="text-xs uppercase tracking-[0.4em] text-copper mb-4">
+              Rod Repair
+            </div>
+            <h2 className="font-serif text-5xl md:text-7xl text-bone leading-[0.95]">
+              Broken guide? <em className="text-copper">Bring it back.</em>
+            </h2>
+            <GrowingLine className="mt-6 max-w-xs" />
+            <p className="mt-6 max-w-xl text-muted-foreground text-lg">
+              Repairs on all rod brands and models. Quick turnaround, honest pricing, no nonsense.
+            </p>
+          </motion.div>
+
+          {/* Custom build row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="border border-copper/40 bg-[oklch(0.16_0.015_80)] p-6 md:p-8 flex flex-wrap items-center justify-between gap-4 mb-12"
+          >
+            <div>
+              <div className="text-xs uppercase tracking-[0.3em] text-copper mb-2">Custom Builds</div>
+              <div className="font-serif text-2xl md:text-3xl text-bone">Custom Fishing Rod — Built to Order</div>
+            </div>
+            <div className="font-serif text-3xl md:text-4xl text-bone">
+              <span className="text-sm uppercase tracking-widest text-muted-foreground mr-3 align-middle">Starting at</span>
+              $230
+            </div>
+          </motion.div>
+
+          {/* Repair table */}
+          <div className="border border-border overflow-hidden">
+            <div className="grid grid-cols-[1.6fr_1fr] bg-[oklch(0.16_0.015_80)] border-b border-border">
+              <div className="px-5 md:px-8 py-4 text-xs uppercase tracking-[0.3em] text-copper">Service</div>
+              <div className="px-5 md:px-8 py-4 text-xs uppercase tracking-[0.3em] text-copper text-right">Price</div>
+            </div>
+            {[
+              { s: "Single Foot Guide Repair", p: "$15", note: "+ cost of guide" },
+              { s: "Double Foot Guide Repair", p: "$20", note: "+ cost of guide" },
+              { s: "Tip-Top Repair & Re-Wrap", p: "$20", note: "+ cost of tip" },
+              { s: "Quick Tip-Top Repair", p: "$10", note: "+ cost of tip · no wrap" },
+              { s: "Heat Shrink Added to Grip", p: "$15", note: "+ cost of material" },
+              { s: "Grip Repair / Replacement", p: "Quote", note: "Contact for pricing" },
+            ].map((row, i) => (
+              <motion.div
+                key={row.s}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.55, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                className="group grid grid-cols-[1.6fr_1fr] border-b border-border last:border-b-0 relative overflow-hidden"
+              >
+                <div
+                  className="absolute inset-0 bg-copper/5 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"
+                  aria-hidden
+                />
+                <div className="relative px-5 md:px-8 py-5 text-bone font-serif text-lg md:text-xl">
+                  {row.s}
+                </div>
+                <div className="relative px-5 md:px-8 py-5 text-right">
+                  <div className="font-serif text-xl md:text-2xl text-copper">{row.p}</div>
+                  <div className="text-[11px] uppercase tracking-widest text-muted-foreground mt-1">{row.note}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Shop Info */}
+          <div className="mt-16">
+            <div className="text-xs uppercase tracking-[0.4em] text-copper mb-6">Shop Info</div>
+            <ul className="grid md:grid-cols-3 gap-6">
+              {[
+                "Repairs available for all rod brands & models.",
+                "Rods that are cracked or structurally broken cannot be repaired.",
+                "Don't see the service you need? Text and ask.",
+              ].map((line, i) => (
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="border-t-2 border-copper pt-4 text-muted-foreground leading-relaxed"
+                >
+                  <span className="block font-serif text-copper text-xs uppercase tracking-[0.3em] mb-2">
+                    Note 0{i + 1}
+                  </span>
+                  {line}
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact" className="relative py-28 md:py-40 grain">
         <div className="max-w-5xl mx-auto px-6 md:px-10 text-center">
