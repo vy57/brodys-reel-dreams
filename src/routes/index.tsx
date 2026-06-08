@@ -153,8 +153,8 @@ function Index() {
                 <div className="mt-1">Build time</div>
               </div>
               <div>
-                <div className="text-bone font-serif text-2xl normal-case tracking-normal">Free</div>
-                <div className="mt-1">Shipping</div>
+                <div className="text-bone font-serif text-2xl normal-case tracking-normal">Yes</div>
+                <div className="mt-1">Shipping offered</div>
               </div>
             </motion.div>
           </div>
