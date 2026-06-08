@@ -221,7 +221,13 @@ function Index() {
       {/* RODS */}
       <section id="rods" className="relative py-28 md:py-40">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex items-end justify-between mb-16 flex-wrap gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex items-end justify-between mb-16 flex-wrap gap-6"
+          >
             <div>
               <div className="text-xs uppercase tracking-[0.4em] text-copper mb-4">
                 The Collection
@@ -229,12 +235,13 @@ function Index() {
               <h2 className="font-serif text-5xl md:text-7xl text-bone max-w-2xl leading-[0.95]">
                 Three blanks. <em className="text-copper">Infinite</em> builds.
               </h2>
+              <GrowingLine className="mt-6 max-w-xs" />
             </div>
             <p className="max-w-sm text-muted-foreground">
               Pick a starting point. We tune length, action, wrap color, and
               hardware to you over a quick text conversation.
             </p>
-          </div>
+          </motion.div>
 
           <div className="space-y-10">
             {RODS.map((rod) => (
@@ -260,16 +267,24 @@ function Index() {
               { n: "02", t: "Blank & Hardware", b: "Pick your colors, your reel seat, your grip. Every choice is yours." },
               { n: "03", t: "Wrap & Finish", b: "Thread is laid by hand, sealed in epoxy, cured slow. No shortcuts." },
               { n: "04", t: "Shipped", b: "Tested, boxed, and sent to your door. Shipping offered on every build." },
-            ].map((s) => (
+            ].map((s, i) => (
               <motion.div
                 key={s.n}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="border-t border-copper pt-6"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                className="relative group"
               >
-                <div className="font-serif text-copper text-3xl mb-4">{s.n}</div>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: i * 0.12, ease: "easeOut" }}
+                  style={{ transformOrigin: "left" }}
+                  className="h-[2px] bg-copper mb-6"
+                />
+                <div className="font-serif text-copper text-3xl mb-4 transition-transform duration-500 group-hover:-translate-y-1">{s.n}</div>
                 <h3 className="font-serif text-2xl text-bone mb-3">{s.t}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{s.b}</p>
               </motion.div>
