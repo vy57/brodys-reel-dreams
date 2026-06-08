@@ -3,14 +3,25 @@ import { Environment, Float, ContactShadows } from "@react-three/drei";
 import { useRef, Suspense, useMemo } from "react";
 import * as THREE from "three";
 
-function Rod({ accent = "#c97f3d" }: { accent?: string }) {
+function Rod({ accent = "#c97f3d", interactive = false }: { accent?: string; interactive?: boolean }) {
   const group = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (!group.current) return;
     const t = state.clock.getElapsedTime();
-    group.current.rotation.z = Math.sin(t * 0.4) * 0.06;
-    group.current.rotation.y = t * 0.18;
+    const baseZ = Math.PI / 4 + Math.sin(t * 0.4) * 0.06;
+    if (interactive) {
+      const mx = state.pointer.x;
+      const my = state.pointer.y;
+      const targetY = t * 0.18 + mx * 0.6;
+      const targetX = -my * 0.4;
+      group.current.rotation.y += (targetY - group.current.rotation.y) * 0.06;
+      group.current.rotation.x += (targetX - group.current.rotation.x) * 0.06;
+      group.current.rotation.z = baseZ;
+    } else {
+      group.current.rotation.z = Math.sin(t * 0.4) * 0.06;
+      group.current.rotation.y = t * 0.18;
+    }
   });
 
   const length = 6.4;
