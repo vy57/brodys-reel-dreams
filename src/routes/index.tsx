@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Brody's Custom Rods" },
       {
         property: "og:description",
-        content: "Hand-built custom fishing rods. Starting at $175. Shipping offered.",
+        content: "Custom builds & rod repair. Custom fishing rods starting at $230. Shipping offered.",
       },
     ],
   }),
