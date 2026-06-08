@@ -76,6 +76,7 @@ function Index() {
           <nav className="hidden md:flex gap-10 text-xs uppercase tracking-[0.2em] text-muted-foreground">
             <a href="#rods" className="hover:text-bone transition-colors">The Rods</a>
             <a href="#process" className="hover:text-bone transition-colors">Process</a>
+            <a href="#repair" className="hover:text-bone transition-colors">Repair</a>
             <a href="#contact" className="hover:text-bone transition-colors">Contact</a>
           </nav>
           <a
