@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Brody's Custom Rods" },
       {
         property: "og:description",
-        content: "Hand-built custom fishing rods. Starting at $175. Shipping provided.",
+        content: "Hand-built custom fishing rods. Starting at $175. Shipping offered.",
       },
     ],
   }),
@@ -153,8 +153,8 @@ function Index() {
                 <div className="mt-1">Build time</div>
               </div>
               <div>
-                <div className="text-bone font-serif text-2xl normal-case tracking-normal">Free</div>
-                <div className="mt-1">Shipping</div>
+                <div className="text-bone font-serif text-2xl normal-case tracking-normal">Yes</div>
+                <div className="mt-1">Shipping offered</div>
               </div>
             </motion.div>
           </div>
@@ -231,7 +231,7 @@ function Index() {
               { n: "01", t: "Conversation", b: "We text. You tell me what you fish, where, and how. I sketch the build." },
               { n: "02", t: "Blank & Hardware", b: "Pick your colors, your reel seat, your grip. Every choice is yours." },
               { n: "03", t: "Wrap & Finish", b: "Thread is laid by hand, sealed in epoxy, cured slow. No shortcuts." },
-              { n: "04", t: "Shipped", b: "Tested, boxed, and on its way. Shipping is on me, every time." },
+              { n: "04", t: "Shipped", b: "Tested, boxed, and sent to your door. Shipping offered on every build." },
             ].map((s) => (
               <motion.div
                 key={s.n}
@@ -294,7 +294,7 @@ function Index() {
             </div>
             <div className="border-t border-border pt-5">
               <div className="text-xs uppercase tracking-widest text-muted-foreground">Shipping</div>
-              <div className="mt-2 font-serif text-xl text-bone">Always included</div>
+              <div className="mt-2 font-serif text-xl text-bone">Offered on every rod</div>
             </div>
           </div>
         </div>
