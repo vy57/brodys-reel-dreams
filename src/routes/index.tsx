@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { FishingRod3D } from "@/components/FishingRod3D";
 import { RodCard } from "@/components/RodCard";
+import { RevealWords, CountUp, Magnetic, GrowingLine, Parallax } from "@/components/motion-primitives";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -94,77 +95,104 @@ function Index() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-xs uppercase tracking-[0.4em] text-copper mb-6"
+              className="flex items-center gap-3 text-xs uppercase tracking-[0.4em] text-copper mb-6"
             >
+              <motion.span
+                animate={{ scaleX: [0, 1, 1, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                style={{ transformOrigin: "left" }}
+                className="block h-px w-10 bg-copper"
+              />
               Est. on the water · Hand-built
             </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="font-serif text-[clamp(3rem,9vw,7.5rem)] leading-[0.88] text-bone"
-            >
-              Rods
+
+            <h1 className="font-serif text-[clamp(3rem,9vw,7.5rem)] leading-[0.88] text-bone">
+              <RevealWords text="Rods" delay={0.1} />
               <br />
-              <span className="text-stroke italic">built</span> for
+              <span className="text-stroke italic"><RevealWords text="built" delay={0.25} /></span>{" "}
+              <RevealWords text="for" delay={0.4} />
               <br />
-              the <span className="text-copper italic">fight.</span>
-            </motion.h1>
+              <RevealWords text="the" delay={0.55} />{" "}
+              <span className="text-copper italic"><RevealWords text="fight." delay={0.7} /></span>
+            </h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 1.1 }}
               className="mt-8 max-w-md text-muted-foreground text-lg leading-relaxed"
             >
               One angler. One bench. Every rod wrapped, sealed, and tuned by
               hand — to the water you fish and the way you fish it.
             </motion.p>
+
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
               className="mt-10 flex flex-wrap gap-4"
             >
-              <a
-                href="#rods"
-                className="bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-[oklch(0.78_0.14_55)] transition-colors"
-              >
-                See the Build
-              </a>
-              <a
-                href={smsHref}
-                className="border border-border text-bone px-8 py-4 text-sm uppercase tracking-widest hover:border-copper transition-colors"
-              >
-                Order Yours →
-              </a>
+              <Magnetic>
+                <a
+                  href="#rods"
+                  className="group relative inline-flex bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium overflow-hidden"
+                >
+                  <span className="relative z-10">See the Build</span>
+                  <span className="absolute inset-0 bg-[oklch(0.78_0.14_55)] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href={smsHref}
+                  className="group inline-flex items-center gap-2 border border-border text-bone px-8 py-4 text-sm uppercase tracking-widest hover:border-copper transition-colors"
+                >
+                  Order Yours
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              </Magnetic>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1.5 }}
               className="mt-14 flex gap-10 text-xs uppercase tracking-widest text-muted-foreground"
             >
               <div>
-                <div className="text-bone font-serif text-2xl normal-case tracking-normal">$175+</div>
+                <div className="text-bone font-serif text-2xl normal-case tracking-normal">
+                  <CountUp to={175} prefix="$" suffix="+" />
+                </div>
                 <div className="mt-1">Starting price</div>
               </div>
               <div>
-                <div className="text-bone font-serif text-2xl normal-case tracking-normal">3–4 wks</div>
+                <div className="text-bone font-serif text-2xl normal-case tracking-normal">
+                  <CountUp to={4} suffix=" wks" />
+                </div>
                 <div className="mt-1">Build time</div>
               </div>
               <div>
-                <div className="text-bone font-serif text-2xl normal-case tracking-normal">Yes</div>
-                <div className="mt-1">Shipping offered</div>
+                <div className="text-bone font-serif text-2xl normal-case tracking-normal">100<span className="text-copper">%</span></div>
+                <div className="mt-1">Hand-wrapped</div>
               </div>
             </motion.div>
           </div>
 
-          <div className="relative h-[60vh] md:h-[85vh]">
-            <FishingRod3D accent="#c97f3d" />
-            <div className="absolute bottom-6 right-6 text-xs uppercase tracking-widest text-muted-foreground">
-              Drag · Float · Cast
-            </div>
-          </div>
+          <Parallax offset={80} className="relative h-[60vh] md:h-[85vh]">
+            <FishingRod3D accent="#c97f3d" interactive />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+              className="absolute bottom-6 right-6 text-xs uppercase tracking-widest text-muted-foreground flex items-center gap-2"
+            >
+              <motion.span
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="h-1.5 w-1.5 rounded-full bg-copper"
+              />
+              Move cursor · Live render
+            </motion.div>
+          </Parallax>
         </div>
 
         {/* Scrolling marquee */}
