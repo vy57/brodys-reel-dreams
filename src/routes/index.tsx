@@ -52,7 +52,7 @@ const RODS = [
     index: "03",
     name: "The Long Iron",
     spec: "Surf & Offshore / 9'0\" Heavy",
-    price: "$245",
+    price: "$310",
     accent: "#7fa66b",
     notes: [
       "Reinforced butt section for big fights",
