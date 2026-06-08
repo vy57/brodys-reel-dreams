@@ -40,7 +40,7 @@ const RODS = [
     index: "02",
     name: "The Quiet Bend",
     spec: "Freshwater / 6'8\" Medium-Light",
-    price: "$195",
+    price: "$265",
     accent: "#9a7b3f",
     notes: [
       "Slow-loading blank, sensitive tip",
