@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Brody's Custom Rods" },
       {
         property: "og:description",
-        content: "Custom builds & rod repair. Custom fishing rods starting at $230. Shipping offered.",
+        content: "Custom builds & rod repair. Custom fishing rods starting at $175. Shipping offered.",
       },
     ],
   }),
@@ -28,7 +28,7 @@ const RODS = [
     index: "01",
     name: "The River Forge",
     spec: "Inshore / 7'0\" Medium-Fast",
-    price: "$230",
+    price: "$175",
     accent: "#c97f3d",
     notes: [
       "Hand-wrapped copper trim with epoxy finish",
@@ -40,7 +40,7 @@ const RODS = [
     index: "02",
     name: "The Quiet Bend",
     spec: "Freshwater / 6'8\" Medium-Light",
-    price: "$265",
+    price: "$210",
     accent: "#9a7b3f",
     notes: [
       "Slow-loading blank, sensitive tip",
@@ -52,7 +52,7 @@ const RODS = [
     index: "03",
     name: "The Long Iron",
     spec: "Surf & Offshore / 9'0\" Heavy",
-    price: "$310",
+    price: "$255",
     accent: "#7fa66b",
     notes: [
       "Reinforced butt section for big fights",
@@ -161,7 +161,7 @@ function Index() {
             >
               <div>
                 <div className="text-bone font-serif text-2xl normal-case tracking-normal">
-                  <CountUp to={230} prefix="$" suffix="+" />
+                  <CountUp to={175} prefix="$" suffix="+" />
                 </div>
                 <div className="mt-1">Starting price</div>
               </div>
@@ -330,7 +330,7 @@ function Index() {
             </div>
             <div className="font-serif text-3xl md:text-4xl text-bone">
               <span className="text-sm uppercase tracking-widest text-muted-foreground mr-3 align-middle">Starting at</span>
-              $230
+              $175
             </div>
           </motion.div>
 
