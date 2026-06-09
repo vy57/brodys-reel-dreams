@@ -317,6 +317,22 @@ function Index() {
           </motion.div>
 
           {/* Custom build row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="border border-copper/40 bg-[oklch(0.16_0.015_80)] p-6 md:p-8 flex flex-wrap items-center justify-between gap-4 mb-12"
+          >
+            <div>
+              <div className="text-xs uppercase tracking-[0.3em] text-copper mb-2">Custom Builds</div>
+              <div className="font-serif text-2xl md:text-3xl text-bone">Custom Fishing Rod — Built to Order</div>
+            </div>
+            <div className="font-serif text-3xl md:text-4xl text-bone">
+              <span className="text-sm uppercase tracking-widest text-muted-foreground mr-3 align-middle">Starting at</span>
+              $230
+            </div>
+          </motion.div>
 
           {/* Repair table */}
           <div className="border border-border overflow-hidden">
